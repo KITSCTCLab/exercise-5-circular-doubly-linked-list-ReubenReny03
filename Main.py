@@ -86,7 +86,7 @@ class DoublyCircularLinkedList:
         if (index >= self.count) or (index < 0):
             return -1
         if self.head is None:
-            return None
+            return True
         temp = self.head
         if index == 0:
             return temp.data
