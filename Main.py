@@ -16,17 +16,17 @@ class DoublyCircularLinkedList:
             new_node.next = new_node
             new_node.previous = new_node
             self.head = new_node
-            count +=1
+            self.count +=1
             return True
         else:
             new_node = Node(data)
             new_node.next = self.head
             prep = self.head
-            for x in range(count-1):
+            for x in range(self.count-1):
                 prep = prep.next
             prep.next = new_node
             new_node.previous = prep
-            count +=1
+            self.count +=1
             return True
 
     def add_at_head(self, data) -> bool:
@@ -35,7 +35,7 @@ class DoublyCircularLinkedList:
             new_node.next = new_node
             new_node.previous = new_node
             self.head = new_node
-            count +=1
+            self.count +=1
             return True
         else:
             new_node = Node(data)
@@ -43,18 +43,18 @@ class DoublyCircularLinkedList:
             prep = self.head
             new_node.previous = prep.previous
             prep.previous = new_node
-            count +=1
+            self.count +=1
             return True
 
     def add_at_index(self, index, data) -> bool:
-        if (index >= count) or (index < 0 ):
+        if (index >= self.count) or (index < 0 ):
             return False
         if self.head is None:
             new_node = Node(data)
             new_node.next = new_node
             new_node.previous = new_node
             self.head = new_node
-            count +=1
+            self.count +=1
             return True
         else:
             
@@ -63,11 +63,11 @@ class DoublyCircularLinkedList:
                 new_node = Node(data)
                 new_node.next = temp
                 temp.previous = temp
-                for x in range(count - 1):
+                for x in range(self.count - 1):
                     temp.next
                 temp.next = new_node
                 new_node.previous = temp
-                count +=1
+                self.count +=1
                 self.head = new_node
                 return True
             else:
@@ -80,7 +80,7 @@ class DoublyCircularLinkedList:
                 new_node.next = temp
                 new_node.previous = repre
                 repre.next = new_node
-                count +=1
+                self.count +=1
                 return True
     def get(self, index) -> int:
         if (index >= self.count) or (index < 0):
