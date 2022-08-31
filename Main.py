@@ -86,7 +86,7 @@ class DoublyCircularLinkedList:
         if (index >= self.count) or (index < 0):
             return -1
         if self.head is None:
-            return True
+            return None
         temp = self.head
         if index == 0:
             return temp.data
@@ -113,6 +113,7 @@ class DoublyCircularLinkedList:
 
         target.previous.next, target.next.previous = target.next, target.previous
         self.count -= 1
+        return True
 
     def get_previous_next(self, index) -> list:
         if (index >= self.count) or (index < 0) or self.head is None:
